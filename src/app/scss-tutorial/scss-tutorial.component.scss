@@ -1,0 +1,53 @@
+//imports
+@import "variables";
+
+.demo{
+  font: 100% $font;
+  font-size: $fontSize;
+  color: red;
+}
+
+// nested
+a{
+  color: rebeccapurple;
+  font-size: $fontSize;
+  //icinde olduqu ucun & istifade edilib
+  &:hover{
+    font-size: $hoveFontSize;
+    color: blue;
+  }
+}
+
+// inheritance
+.error {
+  color: red;
+  font: {  //similar font-weight and font-size
+    weight: bold;
+    size: $errorFontSize ;
+  }
+}
+.error-width{
+  @extend .error;
+  padding: 5px;
+}
+
+//mixin incude
+@mixin boxRadius{
+  width: 100px;
+  border-radius: 30px;
+}
+@mixin ifStatement($size, $circle: false) {
+  width: $size;
+  @if($circle){
+    border-radius: $size / 2;
+  }@else {
+    @include boxRadius;
+  }
+}
+
+.mixinInclude{
+  border: 2px solid green;
+  @include ifStatement(400px, false)
+}
+
+

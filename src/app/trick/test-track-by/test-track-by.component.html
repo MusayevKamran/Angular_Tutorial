@@ -1,0 +1,10 @@
+<p>app-track-by works!</p>
+
+<ul>
+  <li *ngFor="let data of response; trackBy: trackByFn">
+<!--  <li *ngFor="let name of names">-->
+    {{ data.name }}
+  </li>
+</ul>
+
+<button (click)="addName()">Add Name</button>
